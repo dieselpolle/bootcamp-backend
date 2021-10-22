@@ -4,6 +4,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var app = express();
+const helmet = require('helmet');
+const cors = require('cors');
+
+app.use(helmet());
+app.use(cors());
 
 //
 // Enabling basic authentication and environment variables
@@ -26,11 +31,6 @@ function authAPI(username, password, cb){
 }
 
 const userRouter = require('./routes/user');
-const helmet = require('helmet');
-const cors = require('cors');
-
-app.use(helmet());
-app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
