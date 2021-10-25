@@ -7,6 +7,6 @@ const userRequest = {
       [user.email, null, user.email,null],
       callback
     );
-  },
-  
+  }
+}
 module.exports = userRequest;
