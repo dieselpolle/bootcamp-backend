@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const user = require('../models/user_model');
-
+/*
 //
 // Enabling basic authentication and environment variables
 //
@@ -21,7 +21,7 @@ function authAPI(username, password, cb){
         return cb(null, false);
     }
 }
-
+*/
 router.get('/:id?',
  function(request, response) {
   if (request.params.id) {
