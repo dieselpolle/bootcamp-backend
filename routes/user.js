@@ -59,4 +59,15 @@ function(request, response) {
   });
 });
 
+router.get('/auth',
+function authenticateUser(request, response) {
+  user.authenticateUser(request.params.username, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(dbResult);
+    }
+});
+});
+
 module.exports = router;

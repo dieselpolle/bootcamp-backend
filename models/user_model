@@ -24,5 +24,17 @@ const user = {
       callback
     );
   }
+  authenticateUser: function(username, password) {
+    let queryResult = db.query(
+      'select password from user where username=?', [username], callback);
+    );
+    if (queryResult!==null && window.btoa(password)==stringify(queryResult[0])) {
+      console.log("Authenticated");
+      return true;
+    } else {
+      console.log("AUTH ERROR");
+      return false;
+    }
+  }
 };
 module.exports = user;
