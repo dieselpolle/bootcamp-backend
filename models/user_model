@@ -26,7 +26,7 @@ const user = {
   },
   authenticateUser: function (user, callback) {
     queryResult = db.query(
-      'select password from user where username=?', [user.username], callback);
+      'select * from user where username=? and password=?', [user.username, user.password], callback);
   }
 };
 module.exports = user;

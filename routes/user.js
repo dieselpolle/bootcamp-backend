@@ -66,7 +66,8 @@ router.post('/auth',
       if (err) {
         response.json(false);
       } else {
-          if (dbResult !== null && dbResult.password == request.password) {
+            console.log(JSON.stringify(dbResult));
+          if (JSON.stringify(dbResult)!=="[]") {  
             response.json(true)
           } else {
             response.json(false);
