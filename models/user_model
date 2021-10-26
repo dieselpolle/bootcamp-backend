@@ -24,9 +24,9 @@ const user = {
       callback
     );
   },
-  authenticateUser: function(usr, psw, callback) {
+  authenticateUser: function(user, callback) {
     let queryResult = db.query(
-      'select password from user where username=?', [usr], callback);
+      'select password from user where username=?', [user.username], callback);
     if (queryResult!==null && window.btoa(psw)==stringify(queryResult[0])) {
       console.log("Authenticated");
       return true;

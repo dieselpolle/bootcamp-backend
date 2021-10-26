@@ -59,9 +59,9 @@ function(request, response) {
   });
 });
 
-router.get('/auth',
+router.post('/authenticateUser',
 function authenticateUser(request, response) {
-  user.authenticateUser(request.params.username, function(err, dbResult) {
+  user.authenticateUser(request.body, function(err, dbResult) {
     if (err) {
       response.json(err);
     } else {
