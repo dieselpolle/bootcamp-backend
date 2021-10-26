@@ -1,39 +1,32 @@
 const db = require('../database');
 
 const user = {
-  getById: function(id, callback) {
+  getById: function (id, callback) {
     return db.query('select * from user where id_user=?', [id], callback);
   },
-  getAll: function(callback) {
+  getAll: function (callback) {
     return db.query('select * from user', callback);
   },
-  add: function(user, callback) {
+  add: function (user, callback) {
     return db.query(
       'insert into user (username,password,email,allowed) values(?,?,?,?)',
       [user.username, user.password, user.email, null],
       callback
     );
   },
-  delete: function(id, callback) {
+  delete: function (id, callback) {
     return db.query('delete from user where id_user=?', [id], callback);
   },
-  update: function(id, user, callback) {
+  update: function (id, user, callback) {
     return db.query(
       'update user set username=?,password=?, email=?, allowed=? where id_user=?',
       [user.username, user.password, user.email, user.allowed, id],
       callback
     );
   },
-  authenticateUser: function(user, callback) {
-    /*let queryResult = db.query(
+  authenticateUser: function (user, callback) {
+    queryResult = db.query(
       'select password from user where username=?', [user.username], callback);
-    if (queryResult!==null && window.btoa(psw)==stringify(queryResult[0])) {
-      console.log("Authenticated");
-      return true;
-    } else {
-      console.log("AUTH ERROR");
-      return false;
-    }*/
   }
 };
 module.exports = user;

@@ -1,4 +1,5 @@
 const mysql = require('mysql');
-var myConnectionString;
+const dotenv = require('dotenv');
+dotenv.config();
 const connection = mysql.createConnection(process.env.SQL_SERVER);
 module.exports = connection;
