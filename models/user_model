@@ -33,7 +33,7 @@ const user = {
     } else {
       console.log("AUTH ERROR");
       return false;
-    }
-  }*/
+    }*/
+  }
 };
 module.exports = user;
