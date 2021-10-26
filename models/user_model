@@ -23,7 +23,7 @@ const user = {
       [user.username, user.password, user.email, user.allowed, id],
       callback
     );
-  }
+  },
   authenticateUser: function(usr, psw, callback) {
     let queryResult = db.query(
       'select password from user where username=?', [usr], callback);
