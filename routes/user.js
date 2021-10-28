@@ -3,6 +3,7 @@ const { crossOriginResourcePolicy } = require('helmet');
 const router = express.Router();
 const user = require('../models/user_model');
 
+//use API authorization
 const basicAuth = require('express-basic-auth');
 const authUser = require('../authUser');
 router.use(basicAuth( { authorizer: authUser, authorizeAsync:true, } ));
