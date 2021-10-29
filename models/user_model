@@ -5,7 +5,7 @@ const user = {
     return db.query('select * from user where id=?', [id], callback);
   },
   getAll: function (callback) {
-    return db.query('select * from user', callback);
+    return db.query('select * from user order by date DESC', callback);
   },
   add: function (user, callback) {
     return db.query(

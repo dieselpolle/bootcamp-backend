@@ -5,7 +5,8 @@ const authRequest = require('../models/requestAuth_model');
 
 router.post('/',
   function (request, response) {
-    authRequest.add(request.getRemoteAddr(), request.body, function (err, dbResult) {
+    authRequest.add(request.body, function (err, dbResult) {
+      console.log(request.body.ip);
       if (err) {
         response.json({"error":"Error happened."});
       } else {
