@@ -7,6 +7,7 @@ const cors = require('cors');
 //const basicAuth = require('express-basic-auth');
 const userRouter = require('./routes/user');
 const requestAuthRouter = require('./routes/requestAuth');
+const requestIpAddrRouter = require('./routes/ipAddr');
 //const authUser = require('./authUser');
 
 var app = express();
@@ -21,5 +22,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user', userRouter);
 app.use('/requestAuth', requestAuthRouter);
+app.use('/ipAddr', requestIpAddrRouter);
 
 module.exports = app;
