@@ -4,9 +4,9 @@ const router = express.Router();
 const ipaddr = require('../models/ipAddr_model');
 
 //use API authorization
-const basicAuth = require('express-basic-auth');
-const authUser = require('../authUser');
-router.use(basicAuth( { authorizer: authUser, authorizeAsync:true, } ));
+//const basicAuth = require('express-basic-auth');
+//const authUser = require('../authUser');
+//router.use(basicAuth( { authorizer: authUser, authorizeAsync:true, } ));
 
 router.get('/:ip?',
   function (request, response) {
