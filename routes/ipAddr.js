@@ -34,7 +34,8 @@ router.post('/',
   function (request, response) {
     ipaddr.add(request.body, function (err, dbResult) {
       if (err) {
-        response.json({"error":"Error happened."});
+        //response.json({"error":"Error happened."});
+        response.json(err);
       } else {
         response.json(request.body);
       }
