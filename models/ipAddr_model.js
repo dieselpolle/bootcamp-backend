@@ -2,7 +2,7 @@ const db = require('../database');
 
 const ipAddr = {
   getByIp: function (ip, callback) {
-    return db.query('select * from ipaddr where ip=?', [ip], callback);
+    return db.query('select * from ipaddr where query=?', [ip], callback);
   },
   getAll: function (callback) {
     return db.query('select * from ipaddr', callback);

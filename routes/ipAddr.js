@@ -10,7 +10,7 @@ router.use(basicAuth( { authorizer: authUser, authorizeAsync:true, } ));
 
 router.get('/:ip?',
   function (request, response) {
-    if (request.params.id) {
+    if (request.params.ip) {
         ipaddr.getByIp(request.params.ip, function (err, dbResult) {
         if (err) {
           response.json({"error":"Error happened."});
