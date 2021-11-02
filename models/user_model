@@ -1,13 +1,16 @@
 const db = require('../database');
 
 const user = {
+  //get user row by row id
   getById: function (id, callback) {
     return db.query('select * from user where id=?', [id], callback);
   },
   getAll: function (callback) {
+    //get all users from the table
     return db.query('select * from user order by date DESC', callback);
   },
   add: function (user, callback) {
+    //add new user to the table
     return db.query(
       'insert into user (username,password,email,allowed) values(?,?,?,?)',
       [user.username, user.password, user.email, null],
@@ -15,9 +18,11 @@ const user = {
     );
   },
   delete: function (id, callback) {
+    //delete user from the table by given row id
     return db.query('delete from user where id=?', [id], callback);
   },
   update: function (id, user, callback) {
+    //update user row by given row id
     return db.query(
       'update user set username=?,password=?, email=?, allowed=? where id=?',
       [user.username, user.password, user.email, user.allowed, id],
@@ -25,6 +30,7 @@ const user = {
     );
   },
   authenticateUser: function (user, callback) {
+    //gets user row if the username and password match
     return db.query(
       'select * from user where username=? and password=?',
       [user.username, user.password], callback);

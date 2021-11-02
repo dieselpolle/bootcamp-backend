@@ -3,11 +3,7 @@ const { crossOriginResourcePolicy } = require('helmet');
 const router = express.Router();
 const ipaddr = require('../models/ipAddr_model');
 
-//use API authorization
-//const basicAuth = require('express-basic-auth');
-//const authUser = require('../authUser');
-//router.use(basicAuth( { authorizer: authUser, authorizeAsync:true, } ));
-
+//gets all IP address data by given IP address
 router.get('/:ip?',
   function (request, response) {
     if (request.params.ip) {
@@ -18,6 +14,7 @@ router.get('/:ip?',
           response.json(dbResult);
         }
       });
+      //gets all data from IP address table
     } else {
         ipaddr.getAll(function (err, dbResult) {
         if (err) {
@@ -29,7 +26,7 @@ router.get('/:ip?',
     }
   });
 
-
+//adds new IP address data to the table
 router.post('/',
   function (request, response) {
     ipaddr.add(request.body, function (err, dbResult) {

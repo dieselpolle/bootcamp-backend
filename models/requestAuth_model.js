@@ -1,9 +1,8 @@
 const db = require('../database');
 
-//This is open interface to add emails into user table.
+//This is open interface to add emails into user table. It does not allow duplicate emails.
 //This is used in frontend for requesting username and password for a new user.
 //
-//Method should check IP when it is already in table and it is same day
 const requestAuth = {
   add: function (user, callback) {
     date = new Date();

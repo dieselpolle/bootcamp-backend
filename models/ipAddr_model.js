@@ -1,13 +1,16 @@
 const db = require('../database');
 
 const ipAddr = {
+  //get the all data from IP address table by given IP address
   getByIp: function (ip, callback) {
     return db.query('select * from ipaddr where query=?', [ip], callback);
   },
   getAll: function (callback) {
+    //get all rows from IP Address table
     return db.query('select * from ipaddr', callback);
   },
   add: function (ipAddr, callback) {
+    //insert IP address data to the table
     console.log("IpAddrModel: "+ipAddr.getAll);
     return db.query(
       'insert into ipaddr (query, country, countrycode, region, regionname, city, zip, lat, lon, timezone, isp, org, org2) values (?,?,?,?,?,?,?,?,?,?,?,?,?)',

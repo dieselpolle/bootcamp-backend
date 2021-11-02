@@ -3,11 +3,12 @@ const { crossOriginResourcePolicy } = require('helmet');
 const router = express.Router();
 const user = require('../models/user_model');
 
-//use API authorization
+//use API authorization when accessing the user rest api
 const basicAuth = require('express-basic-auth');
 const authUser = require('../authUser');
 router.use(basicAuth( { authorizer: authUser, authorizeAsync:true, } ));
 
+//get user row by row id
 router.get('/:id?',
   function (request, response) {
     if (request.params.id) {
@@ -18,6 +19,7 @@ router.get('/:id?',
           response.json(dbResult);
         }
       });
+      //get all user rows
     } else {
       user.getAll(function (err, dbResult) {
         if (err) {
@@ -29,7 +31,7 @@ router.get('/:id?',
     }
   });
 
-
+//add new user
 router.post('/',
   function (request, response) {
     user.add(request.body, function (err, dbResult) {
@@ -41,7 +43,7 @@ router.post('/',
     });
   });
 
-
+//delete a user
 router.delete('/:id',
   function (request, response) {
     user.delete(request.params.id, function (err, dbResult) {
@@ -53,7 +55,7 @@ router.delete('/:id',
     });
   });
 
-
+//update a user
 router.put('/:id',
   function (request, response) {
     user.update(request.params.id, request.body, function (err, dbResult) {
@@ -65,6 +67,7 @@ router.put('/:id',
     });
   });
 
+//authenticates the user by given username and password, if they don't match, FALSE is given. On success, TRUE is given.
 router.post('/auth',
   function authenticateUser(request, response) {
     user.authenticateUser(request.body, function (err, dbResult) {

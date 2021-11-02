@@ -1,3 +1,4 @@
+//functionality to add rest api authentication to any JS implementation
 module.exports = function authAPI(username, password, cb){
     const dotenv = require('dotenv');
     dotenv.config();
