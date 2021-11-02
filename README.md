@@ -1,4 +1,4 @@
-# bootcamp-backend
+# Bootcamp backend
 
 A demo REST API created with Node.js
 
