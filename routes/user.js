@@ -55,10 +55,10 @@ router.delete('/:id',
     });
   });
 
-//update a user
-router.put('/:id',
+//update a user password
+router.put('/newPassword',
   function (request, response) {
-    user.update(request.params.id, request.body, function (err, dbResult) {
+    user.update(request.body, function (err, dbResult) {
       if (err) {
         response.json({"error":"Error happened."});
       } else {

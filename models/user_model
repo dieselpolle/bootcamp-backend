@@ -21,11 +21,11 @@ const user = {
     //delete user from the table by given row id
     return db.query('delete from user where id=?', [id], callback);
   },
-  update: function (id, user, callback) {
-    //update user row by given row id
+  update: function (user, callback) {
+    //update user password by given email
     return db.query(
-      'update user set username=?,password=?, email=?, allowed=? where id=?',
-      [user.username, user.password, user.email, user.allowed, id],
+      'update user set password=? where email=?',
+      [user.password, user.email],
       callback
     );
   },
