@@ -20,8 +20,8 @@ auth_pass=[set api password]
 
 Here are the API services.
 ```bash
-urlToAPI + "/requestAuth";
-urlToAPI + "/user";
+urlToAPI + "/requestAuth"
+urlToAPI + "/user"
 urlToAPI + "/ipAddr
 ```
 **/requestAuth:** implements storing a new user with email parameter, no API authentication is needed.
