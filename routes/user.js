@@ -74,7 +74,6 @@ router.post('/auth',
       if (err) {
         response.json(false);
       } else {
-            console.log(JSON.stringify(dbResult));
           if (JSON.stringify(dbResult)!=="[]") {  
             response.json(true)
           } else {
