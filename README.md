@@ -21,17 +21,14 @@ auth_pass=[set api password]
 Here are the API services.
 ```bash
 urlToAPI + "/requestAuth";
-urlToAPI + "/user/auth";
 urlToAPI + "/user";
 urlToAPI + "/ipAddr
 ```
-**/requestAuth:** implements POSTing a new user with email parameter.
-
-**/user/auth:** implements user authentication, user must be found on db (username, password).
+**/requestAuth:** implements storing a new user with email parameter, no API authentication is needed.
 
 **/user:** implements fetching and storing user data, uses basic authentication.
 
-**/ipAddr:** implements fetching and storing IP address data.
+**/ipAddr:** implements fetching and storing IP address data of users, no API authentication is needed.
 
 ## Frontend
 
